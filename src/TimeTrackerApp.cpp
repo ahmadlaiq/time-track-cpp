@@ -500,6 +500,8 @@ void TimeTrackerApp::startScreenShare()
         startScreenShareButton->setEnabled(false);
         stopScreenShareButton->setEnabled(true);
 
+         // Convert userId to QString
+        QString userIdStr = QString::number(userId);
         // Start FFmpeg process for RTMP streaming
 
 #ifdef Q_OS_WIN
@@ -511,7 +513,7 @@ void TimeTrackerApp::startScreenShare()
             "-preset", "ultrafast",
             "-tune", "zerolatency",
             "-f", "flv",
-            "rtmp://localhost:1935/live/stream"
+            "rtmp://localhost:1935/live/" + userIdStr + "/stream"
         };
 #elif defined(Q_OS_LINUX)
         QStringList ffmpegArgs = {
