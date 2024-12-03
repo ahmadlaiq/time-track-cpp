@@ -22,7 +22,7 @@ TimeTrackerApp::TimeTrackerApp(QWidget *parent)
       isSharingScreen(false)
 {
     // Set your actual API URL here
-    API_URL = "127.0.0.1:3000"; // Replace with your API URL
+    API_URL = "http://127.0.0.1:3000"; // Replace with your API URL
 
     networkManager = new QNetworkAccessManager(this);
 
